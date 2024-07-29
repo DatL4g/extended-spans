@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.ExperimentalTextApi
+import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.buildAnnotatedString
 import me.saket.extendedspans.internal.fastFold
@@ -46,6 +47,16 @@ class ExtendedSpans(
       }
       text.getTtsAnnotations(start = 0, end = text.length).fastForEach {
         addTtsAnnotation(it.item, it.start, it.end)
+      }
+      @Suppress("DEPRECATION")
+      text.getUrlAnnotations(start = 0, end = text.length).fastForEach {
+        addUrlAnnotation(it.item, it.start, it.end)
+      }
+      text.getLinkAnnotations(start = 0, end = text.length).fastForEach { range ->
+        when (val item = range.item) {
+          is LinkAnnotation.Url -> addLink(item, range.start, range.end)
+          is LinkAnnotation.Clickable -> addLink(item, range.start, range.end)
+        }
       }
     }
   }
