@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.sp
 import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
 import com.android.ide.common.rendering.api.SessionParams
+import com.android.ide.common.rendering.api.SessionParams.RenderingMode
 import com.squareup.burst.BurstJUnit4
 import me.saket.extendedspans.RoundedCornerSpanPainter.TextPaddingValues
 import org.junit.Rule
@@ -25,8 +26,8 @@ class RoundedCornerSpanPainterTest(
 
   @get:Rule val paparazzi = Paparazzi(
     theme = "Theme.NoTitleBar.Fullscreen",
-    deviceConfig = DeviceConfig.PIXEL_5.copy(softButtons = false, screenHeight = 0),
-    renderingMode = SessionParams.RenderingMode.V_SCROLL,
+    deviceConfig = DeviceConfig.PIXEL_5,
+    renderingMode = RenderingMode.SHRINK,
   )
 
   @Composable

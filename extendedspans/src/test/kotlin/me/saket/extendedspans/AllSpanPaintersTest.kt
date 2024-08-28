@@ -20,8 +20,8 @@ class AllSpanPaintersTest(
 
   @get:Rule val paparazzi = Paparazzi(
     theme = "Theme.NoTitleBar.Fullscreen",
-    deviceConfig = DeviceConfig.PIXEL_5.copy(softButtons = false, screenHeight = 0),
-    renderingMode = RenderingMode.V_SCROLL,
+    deviceConfig = DeviceConfig.PIXEL_5,
+    renderingMode = RenderingMode.SHRINK,
   )
 
   @Test fun snapshot() {

@@ -5,6 +5,7 @@ apply plugin: 'app.cash.paparazzi'
 
 android {
   resourcePrefix "extendedspans_"
+  namespace "me.saket.extendedspans"
 
   compileSdkVersion versions.compileSdk
   defaultConfig.minSdkVersion 21
