@@ -13,7 +13,7 @@ android {
     compose = true
   }
   composeOptions {
-    kotlinCompilerExtensionVersion = versions.composeUi
+    kotlinCompilerExtensionVersion = versions.composeCompiler
   }
   kotlinOptions {
     jvmTarget = "11"

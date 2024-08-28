@@ -3,7 +3,8 @@
 buildscript {
   ext.versions = [
     compileSdk: 32,
-    composeUi: '1.7.0-beta06',
+    composeUi: '1.7.0-rc01',
+    composeCompiler: '1.5.15'
   ]
 
   repositories {
