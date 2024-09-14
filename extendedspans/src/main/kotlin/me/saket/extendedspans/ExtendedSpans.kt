@@ -22,8 +22,10 @@ class ExtendedSpans(
   internal var drawInstructions = emptyList<SpanDrawInstructions>()
 
   /**
-   * Prepares [text] to be rendered by [painters]. [RoundedCornerSpanPainter] and [SquigglyUnderlineSpanPainter]
-   * use this for removing background and underline spans so that they can be drawn manually.
+   * Prepares [text] to be rendered by [painters].
+   *
+   * [RoundedCornerSpanPainter] and [SquigglyUnderlineSpanPainter] use this for removing background
+   * and underline spans so that they can be drawn manually.
    */
   fun extend(text: AnnotatedString): AnnotatedString {
     return buildAnnotatedString {
