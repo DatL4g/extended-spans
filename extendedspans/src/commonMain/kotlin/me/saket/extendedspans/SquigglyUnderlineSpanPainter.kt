@@ -19,7 +19,6 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
-import androidx.compose.ui.graphics.asAndroidPath
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.isSpecified
 import androidx.compose.ui.text.AnnotatedString
@@ -36,6 +35,7 @@ import me.saket.extendedspans.internal.fastFirstOrNull
 import me.saket.extendedspans.internal.fastForEach
 import me.saket.extendedspans.internal.fastMapRange
 import me.saket.extendedspans.internal.serialize
+import kotlin.math.PI
 import kotlin.math.ceil
 import kotlin.math.sin
 import kotlin.time.Duration
@@ -112,7 +112,7 @@ class SquigglyUnderlineSpanPainter(
         )
         val textColor = annotation.item.deserializeToColor() ?: layoutResult.layoutInput.style.color
         boxes.fastForEach { box ->
-          path.asAndroidPath().rewind()
+          path.reset()
           path.buildSquigglesFor(box, density = this)
           drawPath(
             path = path,
@@ -152,7 +152,7 @@ class SquigglyUnderlineSpanPainter(
   companion object {
     private const val TAG = "squiggly_underline_span"
     private const val SEGMENTS_PER_WAVELENGTH = 10
-    private const val TWO_PI = 2 * Math.PI.toFloat()
+    private const val TWO_PI = 2 * PI.toFloat()
   }
 }
 
